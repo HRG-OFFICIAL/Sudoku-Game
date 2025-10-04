@@ -114,6 +114,20 @@ A beautiful, modern Sudoku game built with React, TypeScript, and Tailwind CSS. 
 - **Hint Cells**: Yellow background for hint numbers
 - **Filled Cells**: Light blue background for original numbers
 
+## 📸 Screenshots
+
+### Light Theme
+<div align="center">
+  <img src="screenshots/light01.jpeg" alt="Light Theme - Main Menu" width="45%" style="margin: 10px;">
+  <img src="screenshots/light02.jpeg" alt="Light Theme - Game Screen" width="45%" style="margin: 10px;">
+</div>
+
+### Dark Theme
+<div align="center">
+  <img src="screenshots/dark01.jpeg" alt="Dark Theme - Main Menu" width="45%" style="margin: 10px;">
+  <img src="screenshots/dark02.jpeg" alt="Dark Theme - Game Screen" width="45%" style="margin: 10px;">
+</div>
+
 ## 🏆 Achievements
 
 - **First Victory**: Complete your first puzzle
