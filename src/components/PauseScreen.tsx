@@ -23,17 +23,18 @@ export function PauseScreen() {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-          className="w-20 h-20 bg-gradient-to-br from-warning-500 to-warning-700 rounded-2xl flex items-center justify-center mx-auto"
+          className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto"
+          style={{ backgroundColor: '#000000' }}
         >
           <Play className="w-10 h-10 text-white" />
         </motion.div>
 
         {/* Title */}
         <div>
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white font-display">
+          <h2 className="text-3xl font-bold font-display" style={{ color: 'var(--text-primary)' }}>
             Game Paused
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 mt-2">
+          <p className="mt-2" style={{ color: 'var(--text-muted)' }}>
             Take a break or continue playing
           </p>
         </div>

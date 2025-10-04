@@ -406,6 +406,11 @@ export const useGameStore = create<GameStore>()(
       },
 
       hasConflict: (row: number, col: number, value: number, grid: number[][]) => {
+        // Don't check for conflicts if the value is 0 (empty)
+        if (value === 0) {
+          return false;
+        }
+
         // Check row for conflicts
         for (let c = 0; c < 9; c++) {
           if (c !== col && grid[row][c] === value) {

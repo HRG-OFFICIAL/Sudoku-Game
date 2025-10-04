@@ -43,8 +43,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem('sudoku_theme', theme);
     
     if (actualTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
       document.documentElement.classList.add('dark');
     } else {
+      document.documentElement.setAttribute('data-theme', 'light');
       document.documentElement.classList.remove('dark');
     }
   }, [actualTheme, theme]);

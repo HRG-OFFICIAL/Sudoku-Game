@@ -29,13 +29,31 @@ export function SudokuGrid() {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg">
-      <div className="grid grid-cols-9 gap-1 max-w-fit mx-auto">
+    <div className="sudoku-grid-container">
+      <div className="grid grid-cols-9 gap-0 max-w-fit mx-auto border-2 border-black dark:border-gray-500">
         {grid.cells.map((row, rowIndex) =>
           row.map((cell, colIndex) => {
             const isSelected = selectedCell?.row === rowIndex && selectedCell?.col === colIndex;
             const isRelated = selectedCell ? isCellRelated(rowIndex, colIndex) : false;
             const isInBox = selectedCell ? isInSameBox(rowIndex, colIndex) : false;
+            
+            // Determine border classes for 3x3 grid separation
+            const getBorderClasses = () => {
+              let classes = 'border';
+              classes += ' border-gray-400 dark:border-gray-700';
+              
+              // Add thicker borders for 3x3 grid separation
+              if ((rowIndex + 1) % 3 === 0) {
+                classes += ' border-b-2';
+                classes += ' border-b-black dark:border-b-gray-500';
+              }
+              if ((colIndex + 1) % 3 === 0) {
+                classes += ' border-r-2';
+                classes += ' border-r-black dark:border-r-gray-500';
+              }
+              
+              return classes;
+            };
             
             return (
               <motion.div
@@ -47,11 +65,7 @@ export function SudokuGrid() {
                   type: 'spring',
                   stiffness: 200
                 }}
-                className={`
-                  relative
-                  ${(rowIndex + 1) % 3 === 0 ? 'mb-2' : ''}
-                  ${(colIndex + 1) % 3 === 0 ? 'mr-2' : ''}
-                `}
+                className={getBorderClasses()}
               >
                 <SudokuCell
                   cell={cell}

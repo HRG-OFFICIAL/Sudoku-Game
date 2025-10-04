@@ -39,8 +39,8 @@ export function NumberPad() {
   return (
     <div className="space-y-4">
       {/* Number Grid */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
-        <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+      <div className="card">
+        <h3 className="text-sm font-medium mb-3" style={{ color: 'var(--text-primary)' }}>
           Numbers
         </h3>
         <div className="grid grid-cols-3 gap-2">
@@ -60,8 +60,8 @@ export function NumberPad() {
       </div>
 
       {/* Action Buttons */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
-        <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+      <div className="card">
+        <h3 className="text-sm font-medium mb-3" style={{ color: 'var(--text-primary)' }}>
           Actions
         </h3>
         <div className="space-y-3">
@@ -88,15 +88,15 @@ export function NumberPad() {
             </motion.button>
           </div>
 
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={clearAllErrors}
-            className="btn btn-secondary btn-sm w-full"
-          >
-            <XCircle className="w-4 h-4 mr-1" />
-            Clear Errors
-          </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={clearAllErrors}
+              className="btn btn-info btn-sm w-full"
+            >
+              <XCircle className="w-4 h-4 mr-1" />
+              Clear Errors
+            </motion.button>
 
           <div className="grid grid-cols-2 gap-2">
             <motion.button
@@ -104,7 +104,7 @@ export function NumberPad() {
               whileTap={{ scale: 0.98 }}
               onClick={undo}
               disabled={!canUndo}
-              className="btn btn-secondary btn-sm disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn btn-undo-redo btn-sm disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <RotateCcw className="w-4 h-4 mr-1" />
               Undo
@@ -115,7 +115,7 @@ export function NumberPad() {
               whileTap={{ scale: 0.98 }}
               onClick={redo}
               disabled={!canRedo}
-              className="btn btn-secondary btn-sm disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn btn-undo-redo btn-sm disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <RotateCw className="w-4 h-4 mr-1" />
               Redo
@@ -125,20 +125,20 @@ export function NumberPad() {
       </div>
 
       {/* Stats */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
-        <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+      <div className="card">
+        <h3 className="text-sm font-medium mb-3" style={{ color: 'var(--text-primary)' }}>
           Game Stats
         </h3>
         <div className="space-y-2 text-sm">
           <div className="flex justify-between">
-            <span className="text-gray-600 dark:text-gray-400">Hints Used:</span>
-            <span className="font-medium text-warning-600 dark:text-warning-400">
+            <span style={{ color: 'var(--text-muted)' }}>Hints Used:</span>
+            <span className="font-medium" style={{ color: 'var(--text-primary)' }}>
               {hintsUsed}
             </span>
           </div>
           <div className="flex justify-between">
-            <span className="text-gray-600 dark:text-gray-400">Moves:</span>
-            <span className="font-medium text-gray-900 dark:text-white">
+            <span style={{ color: 'var(--text-muted)' }}>Moves:</span>
+            <span className="font-medium" style={{ color: 'var(--text-primary)' }}>
               {moves.length}
             </span>
           </div>

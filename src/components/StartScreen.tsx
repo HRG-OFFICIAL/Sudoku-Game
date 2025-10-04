@@ -44,16 +44,17 @@ export function StartScreen() {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-            className="w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl flex items-center justify-center mx-auto"
+            className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto"
+            style={{ backgroundColor: '#000000' }}
           >
             <Zap className="w-10 h-10 text-white" />
           </motion.div>
           
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white font-display">
+            <h2 className="text-3xl font-bold font-display" style={{ color: 'var(--text-primary)' }}>
               Welcome to Sudoku
             </h2>
-            <p className="text-gray-600 dark:text-gray-400 mt-2">
+            <p className="mt-2" style={{ color: 'var(--text-muted)' }}>
               Challenge your mind with beautiful puzzles
             </p>
           </div>
@@ -66,11 +67,11 @@ export function StartScreen() {
           transition={{ delay: 0.3 }}
           className="space-y-2"
         >
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label className="block text-sm font-medium" style={{ color: 'var(--text-primary)' }}>
             Player Name
           </label>
           <div className="relative">
-            <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+            <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5" style={{ color: 'var(--text-muted)' }} />
             <input
               type="text"
               value={playerName}
@@ -89,7 +90,7 @@ export function StartScreen() {
           transition={{ delay: 0.4 }}
           className="space-y-3"
         >
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label className="block text-sm font-medium" style={{ color: 'var(--text-primary)' }}>
             Difficulty
           </label>
           <div className="grid grid-cols-2 gap-2">
@@ -105,14 +106,18 @@ export function StartScreen() {
                   onClick={() => setSelectedDifficulty(difficulty)}
                   className={`p-3 rounded-lg border-2 transition-all ${
                     isSelected
-                      ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20'
-                      : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
+                      ? 'border-black bg-gray-100'
+                      : 'border-gray-300 hover:border-gray-400'
                   }`}
+                  style={{
+                    backgroundColor: isSelected ? 'var(--bg-tertiary)' : 'var(--bg-card)',
+                    borderColor: isSelected ? '#000000' : 'var(--border-color)'
+                  }}
                 >
-                  <div className={`font-medium ${isSelected ? 'text-primary-700 dark:text-primary-300' : 'text-gray-700 dark:text-gray-300'}`}>
+                  <div className="font-medium" style={{ color: 'var(--text-primary)' }}>
                     {config.name}
                   </div>
-                  <div className="text-xs text-gray-500 dark:text-gray-400">
+                  <div className="text-xs" style={{ color: 'var(--text-muted)' }}>
                     {config.cellsToRemove} empty
                   </div>
                 </motion.button>
@@ -159,30 +164,31 @@ export function StartScreen() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="pt-4 border-t border-gray-200 dark:border-gray-700"
+          className="pt-4 border-t"
+          style={{ borderColor: 'var(--border-color)' }}
         >
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
-              <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">
+              <div className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
                 {stats.gamesWon}
               </div>
-              <div className="text-sm text-gray-500 dark:text-gray-400">
+              <div className="text-sm" style={{ color: 'var(--text-muted)' }}>
                 Games Won
               </div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-success-600 dark:text-success-400">
+              <div className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
                 {stats.streak}
               </div>
-              <div className="text-sm text-gray-500 dark:text-gray-400">
+              <div className="text-sm" style={{ color: 'var(--text-muted)' }}>
                 Current Streak
               </div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-warning-600 dark:text-warning-400">
+              <div className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
                 {Math.floor(stats.totalTime / 60)}
               </div>
-              <div className="text-sm text-gray-500 dark:text-gray-400">
+              <div className="text-sm" style={{ color: 'var(--text-muted)' }}>
                 Minutes Played
               </div>
             </div>

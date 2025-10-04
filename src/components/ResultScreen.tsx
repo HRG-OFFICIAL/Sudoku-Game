@@ -76,53 +76,53 @@ export function ResultScreen() {
 
         {/* Title */}
         <div>
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white font-display">
+          <h2 className="text-3xl font-bold font-display" style={{ color: 'var(--text-primary)' }}>
             Congratulations!
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 mt-2">
+          <p className="mt-2" style={{ color: 'var(--text-muted)' }}>
             {getPerformanceMessage()}
           </p>
         </div>
 
         {/* Stats */}
         <div className="space-y-4">
-          <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
+          <div className="rounded-xl p-4" style={{ backgroundColor: 'var(--bg-tertiary)' }}>
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div className="flex items-center space-x-2">
-                <Clock className="w-4 h-4 text-primary-500" />
+                <Clock className="w-4 h-4" style={{ color: '#000000' }} />
                 <div>
-                  <div className="text-gray-500 dark:text-gray-400">Time</div>
-                  <div className="font-semibold text-gray-900 dark:text-white">
+                  <div style={{ color: 'var(--text-muted)' }}>Time</div>
+                  <div className="font-semibold" style={{ color: 'var(--text-primary)' }}>
                     {formatTime(timeElapsed)}
                   </div>
                 </div>
               </div>
               
               <div className="flex items-center space-x-2">
-                <Trophy className="w-4 h-4 text-warning-500" />
+                <Trophy className="w-4 h-4" style={{ color: '#000000' }} />
                 <div>
-                  <div className="text-gray-500 dark:text-gray-400">Difficulty</div>
-                  <div className={`font-semibold ${config.color}`}>
+                  <div style={{ color: 'var(--text-muted)' }}>Difficulty</div>
+                  <div className="font-semibold" style={{ color: 'var(--text-primary)' }}>
                     {config.name}
                   </div>
                 </div>
               </div>
               
               <div className="flex items-center space-x-2">
-                <Star className="w-4 h-4 text-success-500" />
+                <Star className="w-4 h-4" style={{ color: '#000000' }} />
                 <div>
-                  <div className="text-gray-500 dark:text-gray-400">Hints</div>
-                  <div className="font-semibold text-gray-900 dark:text-white">
+                  <div style={{ color: 'var(--text-muted)' }}>Hints</div>
+                  <div className="font-semibold" style={{ color: 'var(--text-primary)' }}>
                     {hintsUsed}
                   </div>
                 </div>
               </div>
               
               <div className="flex items-center space-x-2">
-                <div className="w-4 h-4 text-error-500">❌</div>
+                <div className="w-4 h-4" style={{ color: '#000000' }}>❌</div>
                 <div>
-                  <div className="text-gray-500 dark:text-gray-400">Mistakes</div>
-                  <div className="font-semibold text-gray-900 dark:text-white">
+                  <div style={{ color: 'var(--text-muted)' }}>Mistakes</div>
+                  <div className="font-semibold" style={{ color: 'var(--text-primary)' }}>
                     {mistakes}
                   </div>
                 </div>
@@ -136,12 +136,13 @@ export function ResultScreen() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="bg-gradient-to-r from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 rounded-xl p-4"
+              className="rounded-xl p-4"
+              style={{ backgroundColor: 'var(--bg-tertiary)', border: '1px solid #000000' }}
             >
-              <div className="text-primary-600 dark:text-primary-400 font-semibold mb-2">
+              <div className="font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>
                 🏆 Achievement Unlocked!
               </div>
-              <div className="text-sm text-primary-700 dark:text-primary-300">
+              <div className="text-sm" style={{ color: 'var(--text-secondary)' }}>
                 {isNewRecord && "New Personal Best! "}
                 {isPerfect && "Perfect Game! "}
                 {isFast && "Speed Demon! "}

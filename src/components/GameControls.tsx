@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Play, RotateCcw, Settings, Home } from 'lucide-react';
+import { Play, RotateCcw, Home } from 'lucide-react';
 import { useGameStore } from '../store/gameStore';
 
 export function GameControls() {
@@ -19,9 +19,24 @@ export function GameControls() {
     resetGame();
   };
 
+  const handleMainMenu = () => {
+    // Clear the grid to go back to start screen
+    useGameStore.setState({
+      grid: { cells: [], original: [], solution: [] },
+      selectedCell: null,
+      isPaused: false,
+      isCompleted: false,
+      timeElapsed: 0,
+      hintsUsed: 0,
+      mistakes: 0,
+      moves: [],
+      moveIndex: -1,
+    });
+  };
+
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
-      <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+    <div className="card">
+      <h3 className="text-sm font-medium mb-3" style={{ color: 'var(--text-primary)' }}>
         Game Controls
       </h3>
       
@@ -31,7 +46,7 @@ export function GameControls() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={resumeGame}
-            className="btn btn-success btn-md w-full"
+            className="btn btn-secondary btn-md w-full"
           >
             <Play className="w-4 h-4 mr-2" />
             Resume Game
@@ -41,7 +56,7 @@ export function GameControls() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleNewGame}
-            className="btn btn-primary btn-md w-full"
+            className="btn btn-secondary btn-md w-full"
           >
             <Play className="w-4 h-4 mr-2" />
             New Game
@@ -62,21 +77,13 @@ export function GameControls() {
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="btn btn-secondary btn-sm"
+            onClick={handleMainMenu}
+            className="btn btn-outline btn-sm"
           >
-            <Settings className="w-4 h-4 mr-1" />
-            Settings
+            <Home className="w-4 h-4 mr-1" />
+            Main Menu
           </motion.button>
         </div>
-
-        <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className="btn btn-secondary btn-sm w-full"
-        >
-          <Home className="w-4 h-4 mr-1" />
-          Main Menu
-        </motion.button>
       </div>
     </div>
   );

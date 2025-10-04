@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Moon, Sun, Settings, Trophy, Keyboard, HelpCircle } from 'lucide-react';
+import { Moon, Sun, Settings, Trophy, HelpCircle } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 import { useGameStore } from '../store/gameStore';
 import { KeyboardHelp } from './KeyboardHelp';
@@ -21,7 +21,12 @@ export function Header() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700"
+        className="sticky top-0 z-50 backdrop-blur-md"
+        style={{ 
+          backgroundColor: 'var(--bg-primary)', 
+          borderBottom: '2px solid #000000',
+          opacity: 0.9
+        }}
       >
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
@@ -31,7 +36,7 @@ export function Header() {
               transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
               className="flex items-center space-x-3"
             >
-              <h1 className="text-2xl font-bold text-gray-900 dark:text-white font-display">
+              <h1 className="text-2xl font-bold font-display" style={{ color: 'var(--text-primary)' }}>
                 Sudoku
               </h1>
             </motion.div>
@@ -42,13 +47,14 @@ export function Header() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
-                className="hidden sm:flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-400"
+                className="hidden sm:flex items-center space-x-4 text-sm"
+                style={{ color: 'var(--text-muted)' }}
               >
                 <div className="flex items-center space-x-1">
                   <Trophy className="w-4 h-4" />
                   <span>{stats.gamesWon}</span>
                 </div>
-                <div className="w-px h-4 bg-gray-300 dark:bg-gray-600" />
+                <div className="w-px h-4" style={{ backgroundColor: 'var(--border-color)' }} />
                 <div className="flex items-center space-x-1">
                   <span className="font-medium">{stats.streak}</span>
                   <span>streak</span>
@@ -63,7 +69,7 @@ export function Header() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={toggleTheme}
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                className="theme-toggle"
                 aria-label="Toggle theme"
               >
                 {actualTheme === 'light' ? (
@@ -81,7 +87,12 @@ export function Header() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setShowInstructions(true)}
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                className="p-2 rounded-lg transition-colors"
+                style={{ 
+                  backgroundColor: 'var(--bg-tertiary)', 
+                  color: 'var(--text-primary)',
+                  border: '1px solid #000000'
+                }}
                 aria-label="Instructions"
               >
                 <HelpCircle className="w-5 h-5" />
@@ -97,7 +108,16 @@ export function Header() {
                 transition={{ delay: 0.5, type: 'spring', stiffness: 200 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                onClick={() => {
+                  // For now, just show an alert - can be expanded later
+                  alert('Settings feature coming soon!');
+                }}
+                className="p-2 rounded-lg transition-colors"
+                style={{ 
+                  backgroundColor: 'var(--bg-tertiary)', 
+                  color: 'var(--text-primary)',
+                  border: '1px solid #000000'
+                }}
                 aria-label="Settings"
               >
                 <Settings className="w-5 h-5" />

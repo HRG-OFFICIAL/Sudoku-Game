@@ -3,38 +3,125 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Primary Colors */
+    --primary-color: #000000;
+    --primary-hover: #333333;
+    --secondary-color: #666666;
+    
+    /* Background Colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #fafafa;
+    --bg-tertiary: #f5f5f5;
+    --bg-card: #ffffff;
+    
+    /* Text Colors */
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --text-muted: #666666;
+    
+    /* Border and UI */
+    --border-color: #e5e5e5;
+    --border-radius: 8px;
+    --border-radius-sm: 6px;
+    --border-radius-lg: 12px;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    
+    /* Transitions */
+    --transition: all 0.2s ease;
+    --transition-fast: all 0.15s ease;
+    
+    /* Success color for highlights */
+    --success-color: #00a86b;
+  }
+
+  [data-theme="dark"] {
+    /* Primary Colors */
+    --primary-color: #ffffff;
+    --primary-hover: #e5e5e5;
+    --secondary-color: #a3a3a3;
+    
+    /* Background Colors */
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #111111;
+    --bg-tertiary: #1a1a1a;
+    --bg-card: #111111;
+    
+    /* Text Colors */
+    --text-primary: #ffffff;
+    --text-secondary: #e5e5e5;
+    --text-muted: #a3a3a3;
+    
+    /* Border and UI */
+    --border-color: #262626;
+    
+    /* Enhanced shadows for dark theme */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3);
+  }
+
   html {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: var(--transition);
   }
   
   body {
     @apply antialiased;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: var(--transition);
   }
 }
 
 @layer components {
+  /* Button Styles */
   .btn {
-    @apply inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
   }
   
   .btn-primary {
-    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 shadow-sm;
+    background: var(--primary-color);
+    color: #ffffff;
+    border: 2px solid var(--primary-color);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .btn-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
   }
   
   .btn-secondary {
-    @apply bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 2px solid #000000;
   }
   
-  .btn-success {
-    @apply bg-success-600 text-white hover:bg-success-700 focus:ring-success-500;
+  .btn-secondary:hover {
+    background: #000000;
+    color: #ffffff;
   }
   
-  .btn-warning {
-    @apply bg-warning-600 text-white hover:bg-warning-700 focus:ring-warning-500;
+  .btn-outline {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 2px solid #000000;
   }
   
-  .btn-error {
-    @apply bg-error-600 text-white hover:bg-error-700 focus:ring-error-500;
+  .btn-outline:hover {
+    background: #000000;
+    color: #ffffff;
   }
   
   .btn-sm {
@@ -53,35 +140,334 @@
     @apply px-8 py-4 text-xl;
   }
   
+  /* Input Styles */
   .input {
-    @apply w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-400;
+    width: 100%;
+    background: white;
+    border: 2px solid #000000;
+    color: #000000;
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
   }
   
+  .input:focus {
+    border-color: var(--success-color);
+    box-shadow: 0 0 0 3px rgba(0, 168, 107, 0.2);
+    outline: none;
+  }
+  
+  [data-theme="dark"] .input {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+  }
+  
+  /* Card Styles */
   .card {
-    @apply rounded-xl bg-white p-6 shadow-sm dark:bg-gray-800;
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 1rem;
+    transition: var(--transition);
+  }
+  
+  /* Sudoku Grid Styles */
+  .sudoku-grid-container {
+    background: var(--bg-card);
+    border: 2px solid #000000;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-lg);
   }
   
   .sudoku-cell {
-    @apply relative flex h-12 w-12 items-center justify-center rounded-lg border-2 border-transparent bg-gray-100 text-lg font-semibold text-gray-900 transition-all duration-200 hover:border-primary-300 hover:bg-primary-50 dark:bg-gray-700 dark:text-gray-100 dark:hover:border-primary-600 dark:hover:bg-primary-900/20;
+    position: relative;
+    display: flex;
+    height: 3rem;
+    width: 3rem;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    color: #000000;
+    border: 1px solid var(--border-color);
+    font-weight: 900;
+    font-size: 1.125rem;
+    transition: var(--transition);
+    cursor: pointer;
   }
   
-  .sudoku-cell.filled {
-    @apply bg-primary-100 text-primary-900 dark:bg-primary-900/30 dark:text-primary-100;
+  .sudoku-cell:hover {
+    background: #f0f0f0;
+  }
+  
+  [data-theme="dark"] .sudoku-cell {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+  }
+  
+  [data-theme="dark"] .sudoku-cell:hover {
+    background: var(--bg-tertiary);
   }
   
   .sudoku-cell.selected {
-    @apply border-primary-500 bg-primary-500 text-white;
+    background: var(--success-color);
+    border-color: var(--success-color);
+    color: #ffffff;
+    box-shadow: 0 0 16px rgba(5, 150, 105, 0.6);
   }
   
   .sudoku-cell.highlighted {
-    @apply border-primary-300 bg-primary-50 dark:border-primary-600 dark:bg-primary-900/20;
+    background: var(--success-color);
+    border-color: var(--success-color);
+    color: #ffffff;
+    box-shadow: 0 0 16px rgba(5, 150, 105, 0.6);
   }
   
   .sudoku-cell.error {
-    @apply border-error-500 bg-error-100 text-error-900 dark:bg-error-900/30 dark:text-error-100;
+    background: #ff4444;
+    border-color: #ff4444;
+    color: #ffffff;
   }
   
   .sudoku-cell.hint {
-    @apply border-warning-500 bg-warning-100 text-warning-900 dark:bg-warning-900/30 dark:text-warning-100;
+    background: #ffaa00;
+    border-color: #ffaa00;
+    color: #ffffff;
+  }
+  
+  .sudoku-cell.filled {
+    background: #d0d0d0;
+    color: #000000;
+    font-weight: 700;
+  }
+  
+  [data-theme="dark"] .sudoku-cell.filled {
+    background: #404040;
+    color: var(--text-primary);
+  }
+  
+  .btn-error {
+    background: #ff4444;
+    color: #ffffff;
+    border: 2px solid #ff4444;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .btn-error:hover {
+    background: #ff3333;
+    transform: translateY(-1px);
+  }
+  
+  .btn-warning {
+    background: #ffaa00;
+    color: #ffffff;
+    border: 2px solid #ffaa00;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .btn-warning:hover {
+    background: #ff9900;
+    transform: translateY(-1px);
+  }
+  
+  .btn-info {
+    background: #3b82f6;
+    color: #ffffff;
+    border: 2px solid #3b82f6;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .btn-info:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+  }
+  
+  .btn-success {
+    background: #10b981;
+    color: #ffffff;
+    border: 2px solid #10b981;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .btn-success:hover {
+    background: #059669;
+    transform: translateY(-1px);
+  }
+  
+  .btn-undo-redo {
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #000000;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .btn-undo-redo:hover {
+    background: #333333;
+    transform: translateY(-1px);
+  }
+  
+  /* Modal Styles */
+  .modal-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+  }
+  
+  [data-theme="dark"] .modal-overlay {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  .modal-content {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border: 2px solid #000000;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.1);
+  }
+  
+  [data-theme="dark"] .modal-content {
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+  }
+  
+  .modal-header {
+    background: linear-gradient(135deg, #00A86B 0%, #006241 100%);
+    color: #ffffff;
+    border-radius: 18px 18px 0 0;
+  }
+  
+  [data-theme="dark"] .modal-header {
+    background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+    color: var(--text-primary);
+  }
+  
+  /* Status Display Styles */
+  .status-display {
+    background: #f5f5f5;
+    border: 2px solid #000000;
+    color: #000000;
+    font-weight: 700;
+    border-radius: var(--border-radius);
+    padding: 0.75rem 1rem;
+  }
+  
+  [data-theme="dark"] .status-display {
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+  }
+  
+  .score-display {
+    background: #f5f5f5;
+    border: 1px solid #000000;
+    color: var(--text-primary);
+    font-weight: 700;
+    border-radius: var(--border-radius);
+    padding: 0.5rem 0.75rem;
+  }
+  
+  [data-theme="dark"] .score-display {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+  }
+  
+  /* Theme Toggle Button */
+  .theme-toggle {
+    padding: 0.5rem;
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-tertiary) 100%);
+    border: 1px solid #000000;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .theme-toggle:hover {
+    background: var(--success-color);
+    color: #ffffff;
+    transform: scale(1.1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .sudoku-cell {
+      height: 2.5rem;
+      width: 2.5rem;
+      font-size: 1rem;
+    }
+    
+    .btn-sm {
+      @apply px-2 py-1 text-xs;
+    }
+    
+    .btn-md {
+      @apply px-3 py-1.5 text-sm;
+    }
+    
+    .card {
+      padding: 0.75rem;
+    }
+    
+    .modal-content {
+      margin: 1rem;
+      padding: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sudoku-cell {
+      height: 2rem;
+      width: 2rem;
+      font-size: 0.875rem;
+    }
+    
+    .btn-sm {
+      @apply px-1.5 py-1 text-xs;
+    }
+    
+    .btn-md {
+      @apply px-2 py-1 text-sm;
+    }
+    
+    .card {
+      padding: 0.5rem;
+    }
+    
+    .modal-content {
+      margin: 0.5rem;
+      padding: 1rem;
+    }
+  }
+  
+  /* Print Styles */
+  @media print {
+    :root {
+      --bg-primary: #ffffff;
+      --text-primary: #000000;
+      --text-secondary: #000000;
+      --text-muted: #000000;
+      --border-color: #000000;
+    }
+    
+    [data-theme="dark"] {
+      --bg-primary: #ffffff;
+      --text-primary: #000000;
+      --text-secondary: #000000;
+      --text-muted: #000000;
+      --border-color: #000000;
+    }
+    
+    .theme-toggle,
+    .btn {
+      display: none !important;
+    }
+    
+    .sudoku-cell {
+      background: #ffffff !important;
+      color: #000000 !important;
+      border: 1px solid #000000 !important;
+    }
   }
 }

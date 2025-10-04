@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Keyboard, HelpCircle } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 export function KeyboardHelp() {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,7 +39,12 @@ export function KeyboardHelp() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+        className="p-2 rounded-lg transition-colors"
+        style={{ 
+          backgroundColor: 'var(--bg-tertiary)', 
+          color: 'var(--text-primary)',
+          border: '1px solid #000000'
+        }}
         aria-label="Keyboard shortcuts"
       >
         <Keyboard className="w-5 h-5" />

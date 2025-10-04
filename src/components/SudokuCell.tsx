@@ -72,7 +72,7 @@ export function SudokuCell({
               key={i}
               className={`text-center ${
                 cell.notes.includes(i + 1)
-                  ? 'text-gray-700 dark:text-gray-300'
+                  ? 'text-black'
                   : 'text-transparent'
               }`}
             >
