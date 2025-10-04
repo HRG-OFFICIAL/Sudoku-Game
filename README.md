@@ -2,8 +2,6 @@
 
 A beautiful, modern Sudoku game built with React, TypeScript, and Tailwind CSS. Features smooth animations, responsive design, and a delightful user experience with a clean blue color scheme.
 
-## 📸 Screenshots
-
 ### Light Theme
 <div align="center">
   <img src="screenshots/light01.jpeg" alt="Light Theme - Main Menu" width="45%" style="margin: 10px;">
