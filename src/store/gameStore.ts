@@ -52,6 +52,7 @@ const initialPreferences: UserPreferences = {
   showTimer: true,
   showHints: true,
   autoSave: true,
+  playerName: '',
 };
 
 const initialStats: GameStats = {

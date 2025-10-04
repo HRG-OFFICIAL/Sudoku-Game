@@ -64,6 +64,7 @@ export interface UserPreferences {
   showTimer: boolean;
   showHints: boolean;
   autoSave: boolean;
+  playerName: string;
 }
 
 export interface Achievement {

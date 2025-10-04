@@ -6,8 +6,8 @@ import { DIFFICULTY_CONFIGS } from '../constants';
 import { Difficulty } from '../types';
 
 export function StartScreen() {
-  const { startNewGame, stats, grid } = useGameStore();
-  const [playerName, setPlayerName] = useState('');
+  const { startNewGame, stats, grid, updatePreferences, preferences } = useGameStore();
+  const [playerName, setPlayerName] = useState(preferences.playerName || '');
   const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty>('easy');
   const [showContinue] = useState(false);
 
@@ -18,6 +18,8 @@ export function StartScreen() {
     console.log('Current grid cells length:', grid.cells.length);
     if (playerName.trim()) {
       console.log('Starting game with difficulty:', selectedDifficulty);
+      // Save player name to preferences
+      updatePreferences({ playerName: playerName.trim() });
       startNewGame(selectedDifficulty);
       console.log('After startNewGame call, grid cells length:', grid.cells.length);
     } else {

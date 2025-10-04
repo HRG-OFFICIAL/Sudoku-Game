@@ -9,6 +9,7 @@ export function GameInfo() {
     timeElapsed,
     isPaused,
     pauseGame,
+    preferences,
   } = useGameStore();
 
   const formatTime = (seconds: number) => {
@@ -39,7 +40,7 @@ export function GameInfo() {
         <div>
           <div className="text-sm" style={{ color: 'var(--text-muted)' }}>Player</div>
           <div className="font-semibold" style={{ color: 'var(--text-primary)' }}>
-            Sudoku Master
+            {preferences.playerName || 'Sudoku Master'}
           </div>
         </div>
       </div>
