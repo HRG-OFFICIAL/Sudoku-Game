@@ -536,8 +536,8 @@ export const useGameStore = create<GameStore>()(
 
       clearAllErrors: () => {
         const { grid } = get();
-        const newCells = grid.cells.map((gridRow, r) =>
-          gridRow.map((cell, c) => ({
+        const newCells = grid.cells.map((gridRow) =>
+          gridRow.map((cell) => ({
             ...cell,
             isError: false,
           }))

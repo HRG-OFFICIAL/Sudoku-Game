@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Trash2, RotateCcw, RotateCw, Lightbulb, XCircle } from 'lucide-react';
 import { SudokuGrid } from './SudokuGrid';
-import { NumberPad } from './NumberPad';
 import { GameInfo } from './GameInfo';
 import { GameControls } from './GameControls';
 import { useGameStore } from '../store/gameStore';

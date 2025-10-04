@@ -267,7 +267,6 @@ export class SudokuGenerator {
       const col = Math.floor(Math.random() * GRID_SIZE);
       
       if (puzzle[row][col] !== UNASSIGNED) {
-        const originalValue = puzzle[row][col];
         puzzle[row][col] = UNASSIGNED;
         removed++;
       }
@@ -277,36 +276,6 @@ export class SudokuGenerator {
     return puzzle;
   }
 
-  /**
-   * Check if a puzzle has a unique solution
-   */
-  private static hasUniqueSolution(grid: number[][]): boolean {
-    const solutions: number[][][] = [];
-    this.countSolutions(grid, solutions, 0);
-    return solutions.length === 1;
-  }
-
-  /**
-   * Count the number of solutions for a puzzle
-   */
-  private static countSolutions(grid: number[][], solutions: number[][][], maxSolutions: number): void {
-    if (solutions.length >= maxSolutions) return;
-    
-    const unassignedCell = SudokuSolver.findUnassignedCell(grid);
-    if (!unassignedCell) {
-      solutions.push(grid.map(row => [...row]));
-      return;
-    }
-
-    const { row, col } = unassignedCell;
-    for (const num of NUMBERS) {
-      if (SudokuSolver.isSafe(grid, row, col, num)) {
-        grid[row][col] = num;
-        this.countSolutions(grid, solutions, maxSolutions);
-        grid[row][col] = UNASSIGNED;
-      }
-    }
-  }
 
   /**
    * Create a cell grid from a number grid

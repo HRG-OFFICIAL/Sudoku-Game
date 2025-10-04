@@ -7,8 +7,6 @@ import { GameScreen } from './components/GameScreen';
 import { PauseScreen } from './components/PauseScreen';
 import { ResultScreen } from './components/ResultScreen';
 import { ThemeProvider } from './components/ThemeProvider';
-import { Toaster } from './components/ui/Toaster';
-import { Position } from './types';
 
 function App() {
   const { 
@@ -180,8 +178,6 @@ function App() {
             )}
           </AnimatePresence>
         </main>
-        
-        <Toaster />
       </div>
     </ThemeProvider>
   );
