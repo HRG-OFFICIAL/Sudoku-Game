@@ -226,9 +226,15 @@
   }
   
   .sudoku-cell.error {
-    background: #ff4444;
-    border-color: #ff4444;
-    color: #ffffff;
+    background: #ff4444 !important;
+    border-color: #ff4444 !important;
+    color: #ffffff !important;
+  }
+  
+  [data-theme="dark"] .sudoku-cell.error {
+    background: #ff4444 !important;
+    border-color: #ff4444 !important;
+    color: #ffffff !important;
   }
   
   .sudoku-cell.hint {
