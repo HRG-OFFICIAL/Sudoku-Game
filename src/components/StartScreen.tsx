@@ -138,7 +138,7 @@ export function StartScreen() {
             whileTap={{ scale: 0.98 }}
             onClick={handleStartGame}
             disabled={!playerName.trim()}
-            className="btn btn-primary btn-lg w-full"
+            className="btn btn-secondary btn-lg w-full"
           >
             <Play className="w-5 h-5 mr-2" />
             New Game
