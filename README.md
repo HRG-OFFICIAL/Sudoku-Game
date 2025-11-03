@@ -1,221 +1,142 @@
-# Modern Sudoku Game 🧩
+# Sudoku Game
 
-A beautiful, modern Sudoku game built with React, TypeScript, and Tailwind CSS. Features smooth animations, responsive design, and a delightful user experience with a clean blue color scheme.
+Web-based Sudoku game implemented with React, TypeScript, Vite, and Tailwind CSS. The application provides multiple difficulty levels, keyboard controls, hints, undo/redo, real-time validation, statistics, and optional PWA installation.
 
-### Light Theme
+### Screenshots
 <div align="center">
-  <img src="screenshots/light01.jpeg" alt="Light Theme - Main Menu" width="45%" style="margin: 10px;">
-  <img src="screenshots/light02.jpeg" alt="Light Theme - Game Screen" width="45%" style="margin: 10px;">
+  <img src="screenshots/light01.jpeg" alt="Light theme - main menu" width="45%" style="margin: 10px;">
+  <img src="screenshots/light02.jpeg" alt="Light theme - game screen" width="45%" style="margin: 10px;">
+</div>
+<div align="center">
+  <img src="screenshots/dark01.jpeg" alt="Dark theme - main menu" width="45%" style="margin: 10px;">
+  <img src="screenshots/dark02.jpeg" alt="Dark theme - game screen" width="45%" style="margin: 10px;">
 </div>
 
-### Dark Theme
-<div align="center">
-  <img src="screenshots/dark01.jpeg" alt="Dark Theme - Main Menu" width="45%" style="margin: 10px;">
-  <img src="screenshots/dark02.jpeg" alt="Dark Theme - Game Screen" width="45%" style="margin: 10px;">
-</div>
+## Game Features
+- 6 difficulty levels: Easy, Medium, Hard, Expert, Master, Legendary
+- Smart hints system: Get help when you're stuck
+- Undo/redo: Never lose your progress
+- Real-time validation: Instant feedback on mistakes with red error highlighting
+- Timer and statistics tracking: Keep track of your solving time and completion statistics
+- Achievements: Unlock rewards for milestones
+- Keyboard support (navigation and number input): Use arrow keys to navigate and number keys to input numbers
+- Clear errors action: Remove all red error highlights from the grid
 
-## ✨ Features
+## Modern UI/UX
+- Responsive design for desktop, tablet, and mobile
+- Automatic light/dark theme detection with blue accent colors
+- Animations via Framer Motion
+- Inter font family
+- Accessible interactions including keyboard support
+- Clear visual separation between 3x3 Sudoku boxes
 
-### 🎮 Game Features
-- **6 Difficulty Levels**: Easy, Medium, Hard, Expert, Master, and Legendary
-- **Smart Hints System**: Get help when you're stuck
-- **Undo/Redo**: Never lose your progress
-- **Real-time Validation**: Instant feedback on mistakes with red error highlighting
-- **Timer**: Track your solving time
-- **Statistics**: Track your performance and streaks
-- **Achievements**: Unlock rewards for milestones
-- **Keyboard Support**: Full keyboard navigation and number input
-- **Clear Errors**: One-click error clearing functionality
+## Technical Features
+- PWA ready (installable)
+- Offline play
+- Auto-save
+- TypeScript throughout
+- Modern React (hooks and functional components)
+- State management with Zustand
+- Conflict detection in the grid
 
-### 🎨 Modern UI/UX
-- **Responsive Design**: Perfect on desktop, tablet, and mobile
-- **Dark/Light Theme**: Automatic system theme detection with blue accent colors
-- **Smooth Animations**: Powered by Framer Motion
-- **Beautiful Typography**: Inter font family
-- **Accessible**: Full keyboard navigation and screen reader support
-- **Clean Design**: Modern blue color scheme with excellent contrast
-- **Grid Separation**: Clear visual separation between 3x3 Sudoku boxes
+## Tech Stack
+- Frontend: React 18, TypeScript
+- Styling: Tailwind CSS
+- Animations: Framer Motion
+- State Management: Zustand
+- Build Tool: Vite
+- Testing: Vitest, React Testing Library
+- PWA: Vite PWA Plugin
 
-### 🚀 Technical Features
-- **PWA Ready**: Install as a mobile app
-- **Offline Play**: Works without internet connection
-- **Auto-save**: Never lose your progress
-- **TypeScript**: Full type safety
-- **Modern React**: Hooks, Context, and functional components
-- **State Management**: Zustand for efficient state handling
-- **Conflict Detection**: Smart algorithm to identify and highlight conflicts
-
-## 🛠️ Tech Stack
-
-- **Frontend**: React 18, TypeScript
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **State Management**: Zustand
-- **Build Tool**: Vite
-- **Testing**: Vitest, React Testing Library
-- **PWA**: Vite PWA Plugin
-
-## 🚀 Getting Started
+## Installation
 
 ### Prerequisites
-- Node.js 18+ 
-- npm or yarn
+- Node.js 18+
+- npm (or yarn)
 
-### Installation
+### Steps
+```bash
+git clone https://github.com/<user>/<repo>.git
+cd Sudoku-Game
+npm install
+npm run dev
+```
+Open `http://localhost:5173` or the port shown in the terminal.
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd sudoku-game-modern
-   ```
+### Scripts
+- `npm run dev`: Start development server
+- `npm run build`: Build for production
+- `npm run preview`: Preview the production build
+- `npm run test`: Run tests
+- `npm run test:ui`: Run tests with UI
+- `npm run lint`: Run ESLint
+- `npm run lint:fix`: Fix ESLint findings
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+## Project Structure
+- `src/`: Application source code
+  - `components/`: UI components (grid, controls, screens)
+  - `store/`: Zustand store and game state
+  - `utils/`: Utilities (Sudoku logic, storage, formatting)
+  - `constants/`: Shared constants
+  - `types/`: Type definitions
+- `screenshots/`: Example images used in the README
+- `index.html`, `vite.config.ts`, `tsconfig*.json`, `tailwind.config.js`: Build and tooling configuration
 
-3. **Start development server**
-   ```bash
-   npm run dev
-   ```
+## How to Play
+1. Start a new game: choose your difficulty and enter your name
+2. Fill the grid: click on empty cells and use the number pad or keyboard to enter numbers
+3. Use hints: click the hint button when you need help
+4. Track progress: monitor your time and statistics
+5. Complete the puzzle: fill all cells correctly to win
 
-4. **Open your browser**
-   Navigate to `http://localhost:5173` (or the port shown in terminal)
+### Keyboard Shortcuts
+- Numbers 1–9: Enter numbers in selected cell
+- Arrow keys: Navigate between cells
+- Delete/Backspace: Clear selected cell
+- U: Undo last move
+- R: Redo move
+- H: Get hint
+- Space: Pause/Resume game
 
-### Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run test` - Run tests
-- `npm run test:ui` - Run tests with UI
-- `npm run lint` - Run ESLint
-- `npm run lint:fix` - Fix ESLint errors
-
-## 🎯 How to Play
-
-1. **Start a New Game**: Choose your difficulty and enter your name
-2. **Fill the Grid**: Click on empty cells and use the number pad or keyboard to enter numbers
-3. **Use Hints**: Click the hint button when you need help
-4. **Track Progress**: Monitor your time and statistics
-5. **Complete the Puzzle**: Fill all cells correctly to win!
-
-### 🎹 Keyboard Shortcuts
-- **Numbers 1-9**: Enter numbers in selected cell
-- **Arrow Keys**: Navigate between cells
-- **Delete/Backspace**: Clear selected cell
-- **U**: Undo last move
-- **R**: Redo move
-- **H**: Get hint
-- **Space**: Pause/Resume game
-
-## 🎨 Game Interface
+## Game Interface
 
 ### Main Components
-- **Sudoku Grid**: 9x9 grid with clear 3x3 box separation
-- **Number Pad**: Click numbers or use keyboard
-- **Game Info**: Player, difficulty, timer, and pause button
-- **Game Controls**: New game, reset, settings, main menu
-- **Actions Panel**: Clear, hint, clear errors, undo, redo
-- **Statistics**: Hints used, moves count
+- Sudoku Grid: 9x9 grid with clear 3x3 box separation
+- Number Pad: click numbers or use keyboard
+- Game Info: player, difficulty, timer, and pause button
+- Game Controls: new game, reset, settings, main menu
+- Actions Panel: clear, hint, clear errors, undo, redo
+- Statistics: hints used, moves count
 
 ### Visual States
-- **Selected Cell**: Blue background with white text
-- **Highlighted Cells**: Light blue background for related cells
-- **Error Cells**: Red background for conflicting numbers
-- **Hint Cells**: Yellow background for hint numbers
-- **Filled Cells**: Light blue background for original numbers
+- Selected Cell: blue background with white text
+- Highlighted Cells: light blue background for related cells
+- Error Cells: red background for conflicting numbers
+- Hint Cells: yellow background for hint numbers
+- Filled Cells: light blue background for original numbers
 
-## 🏆 Achievements
+## Achievements
+- First Victory: complete your first puzzle
+- Speed Demon: solve a puzzle in under 5 minutes
+- Perfectionist: complete a puzzle without mistakes
+- Streak Master: win 10 games in a row
+- Hint Hater: complete 5 puzzles without hints
+- Legendary Player: complete a Legendary difficulty puzzle
 
-- **First Victory**: Complete your first puzzle
-- **Speed Demon**: Solve a puzzle in under 5 minutes
-- **Perfectionist**: Complete a puzzle without mistakes
-- **Streak Master**: Win 10 games in a row
-- **Hint Hater**: Complete 5 puzzles without hints
-- **Legendary Player**: Complete a Legendary difficulty puzzle
-
-## 📱 PWA Features
-
+## PWA Features
 This app can be installed as a Progressive Web App (PWA):
+1. Desktop: look for the install button in your browser
+2. Mobile: add to home screen from your browser menu
+3. Offline: play without internet connection
+4. App-like: full-screen experience with native feel
 
-1. **Desktop**: Look for the install button in your browser
-2. **Mobile**: Add to home screen from your browser menu
-3. **Offline**: Play without internet connection
-4. **App-like**: Full-screen experience with native feel
-
-## 🎨 Design Philosophy
-
-The app features a clean, modern design with:
-- **Blue Color Scheme**: Professional and easy on the eyes
-- **High Contrast**: Excellent readability in both light and dark modes
-- **Consistent Spacing**: Proper margins and padding throughout
-- **Smooth Transitions**: Elegant animations for better UX
-- **Responsive Layout**: Adapts perfectly to all screen sizes
-
-## 🧪 Testing
-
-Run the test suite:
-
+## Testing and Build
 ```bash
-# Run all tests
 npm run test
-
-# Run tests with UI
-npm run test:ui
-
-# Run tests in watch mode
-npm run test -- --watch
-```
-
-## 📦 Building for Production
-
-```bash
-# Build the app
 npm run build
-
-# Preview the build
 npm run preview
 ```
+Build artifacts are generated in `dist`.
 
-The built files will be in the `dist` directory, ready for deployment.
-
-## 🚀 Deployment
-
-The app can be deployed to any static hosting service:
-
-- **Vercel**: Connect your GitHub repository
-- **Netlify**: Drag and drop the `dist` folder
-- **GitHub Pages**: Use GitHub Actions
-- **Firebase Hosting**: Use Firebase CLI
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Original Sudoku Logic**: Based on classic Sudoku solving algorithms
-- **UI Inspiration**: Modern design patterns and best practices
-- **Icons**: Lucide React icon library
-- **Fonts**: Google Fonts (Inter)
-
-## 📞 Support
-
-If you encounter any issues or have questions:
-
-1. Check the [Issues](https://github.com/your-repo/issues) page
-2. Create a new issue with detailed information
-3. Contact the maintainers
-
----
-
-**Enjoy playing Sudoku! 🧩✨**
+## License
+MIT License. See the [LICENSE](LICENSE) file.

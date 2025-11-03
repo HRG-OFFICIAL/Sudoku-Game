@@ -38,5 +38,9 @@ coverage
 build
 out
 
+# Hosting/CI provider directories
+.vercel
+.netlify
+
 # OS generated files
 Thumbs.db
